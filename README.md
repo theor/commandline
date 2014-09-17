@@ -1,3 +1,5 @@
+[![Build status](https://ci.appveyor.com/api/projects/status/45x7s2101mpfjmhp/branch/master)](https://ci.appveyor.com/project/cosmo0/commandline/branch/master)
+
 Command Line Parser Library 2.0.0.0 pre-release for CLR.
 ===
 
