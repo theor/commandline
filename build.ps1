@@ -1,6 +1,7 @@
 Properties {
 	$apikey = $null # call nuget.bat with your Nuget API key as parameter
 	$BIN_PATH = ".\build"
+	$NUGET_OUTPUT = (Join-Path $BIN_PATH "nuget")
 }
 
 Framework "4.0x86"
@@ -37,8 +38,17 @@ task Generate-Package -depends Build-Solution {
 	} else {
 		Write-Host "Generating a Nuget package"
 		& nuget setApiKey $apikey
-		& nuget Pack ".\nuget\CommandLine.nuspec"
-		Get-ChildItem ".\*.nupkg" | % {
+		
+		# Nuget doesn't create the output dir automatically...
+		if (-not (Test-Path $NUGET_OUTPUT)) {
+			mkdir $NUGET_OUTPUT | Out-Null
+		}
+		
+		# Package the nuget
+		& nuget Pack ".\nuget\CommandLine.nuspec" -OutputDirectory $NUGET_OUTPUT
+		
+		# Send the nuget
+		Get-ChildItem "$NUGET_OUTPUT\*.nupkg" | % {
 			& nuget Push $_
 		}
 	}
