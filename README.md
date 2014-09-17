@@ -1,42 +1,44 @@
 Command Line Parser Library 2.0.0.0 pre-release for CLR.
 ===
-The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks defining switches, options and verb commands. It allows you to display an help screen with an high degree of customization and a simple way to report syntax errors to the end user. Everything that is boring and repetitive to be programmed stands up on library shoulders, letting developers concentrate on core logic.
+
+The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks defining switches, options and verb commands.  
+It allows you to display an help screen with an high degree of customization and a simple way to report syntax errors to the end user. Everything that is boring and repetitive to be programmed stands up on library shoulders, letting developers concentrate on core logic.  
 __This library provides _hassle free_ command line parsing with a constantly updated API since 2005.__
 
 Compatibility:
 ---
-  - .NET Framework 3.5+
+  - .NET Framework 4.0+ Client Profile
   - Mono 2.1+ Profile
 
 Current Release:
 ---
-  - This is a __pre-release__, for documentation please read appropriate [wiki section](https://github.com/gsscoder/commandline/wiki/Latest-Beta).
+  - This is a __pre-release__, for documentation please read the appropriate [wiki section](https://github.com/gsscoder/commandline/wiki/Latest-Beta).
 
-At glance:
+At a glance:
 ---
   - One line parsing using default singleton: ``CommandLine.Parser.Default.ParseArguments(...)``.
   - One line help screen generator: ``HelpText.AutoBuild(...)``.
   - Map command line arguments to sequences (``IEnumerable<T>``), enum or standard scalar types.
   - __Plug-In friendly__ architecture as explained [here](https://github.com/gsscoder/commandline/wiki/Plug-in-Friendly-Architecture).
   - Define [verb commands](https://github.com/gsscoder/commandline/wiki/Verb-Commands) as ``git commit -a``.
-  - Most of features applies with a [CoC](http://en.wikipedia.org/wiki/Convention_over_configuration) philosophy.
+  - Most of features applies with a [Convention over Configuration (CoC)](http://en.wikipedia.org/wiki/Convention_over_configuration) philosophy.
   - F# specific API (work in progress).
 
 To install:
 ---
-  - NuGet way (latest stable): ``Install-Package CommandLineParser``
-  - NuGet way (latest version): ``Install-Package CommandLineParser -pre``
-  - XCOPY way: ``cp -r CommandLine/src/libcmdline To/Your/Project/Dir``
+  - NuGet way (latest stable): ``Install-Package CommandLineParser20``
+  - NuGet way (latest version): ``Install-Package CommandLineParser20 -pre``
+  - XCOPY way: ``cp -r src\CommandLine To/Your/Project/Dir``
 
 To build:
 ---
-You must have any flavor of MSBuild (MonoDevelop, Visual Studio, or simply a .Net version including it, which are most of them) installed to build the project.
+You must have any flavor of MSBuild (Xamarin, Visual Studio, or simply a .Net version including it, which are most of them) installed to build the project, but Visual Studio 2010+ or Xamarin is required to modify the project.
 
 `NuGet.exe` must be available in your `PATH` variable.
 
 If you use the FSharp solution, you will also need the F# 3.1 compiler tools, linked [from fsharp.org](http://fsharp.org/use/windows/).
 
-A [PSake](https://github.com/psake/psake) build script is provided. You can run build.bat to build the project and run the unit tests. 
+A [PSake](https://github.com/psake/psake) build script is provided. You can run `build.bat` to build the project and run the unit tests. 
 
 Public API:
 ---
@@ -44,7 +46,9 @@ Latest changes are recorded from Version 1.9.4.91, please refer to [this documen
 
 Notes:
 ---
-The project is and well suited to be included in your application. If you don't merge it to your project tree, you must reference ``CommandLine.dll`` and import ``CommandLine`` and ``CommandLine.Text`` namespaces (or install via NuGet). The help text builder and its support types lives in ``CommandLine.Text`` namespace that is loosely coupled with the parser. However is good to know that ``HelpText`` class will avoid a lot of repetitive coding.
+The project is well suited to be included in your application. If you don't merge it to your project tree, you must reference ``CommandLine.dll`` and import ``CommandLine`` and ``CommandLine.Text`` namespaces (or install via NuGet).
+
+The help text builder and its support types lives in ``CommandLine.Text`` namespace that is loosely coupled with the parser. However is good to know that ``HelpText`` class will avoid a lot of repetitive coding.
 
 Define a class to receive parsed values:
 
