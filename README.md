@@ -30,7 +30,11 @@ To install:
 
 To build:
 ---
-MonoDevelop or Visual Studio
+You must have any flavor of MSBuild (MonoDevelop, Visual Studio, or simply a .Net version including it, which are most of them) installed to build the project.
+
+If you use the FSharp solution, you will also need the F# 3.1 compiler tools, linked [from fsharp.org](http://fsharp.org/use/windows/).
+
+A [PSake](https://github.com/psake/psake) build script is provided. You can run build.bat to build the project and run the unit tests. 
 
 Public API:
 ---
