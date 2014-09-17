@@ -26,3 +26,5 @@ TestResult.xml
 *.nupkg
 *.old
 StyleCop.Cache
+
+build/*
