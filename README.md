@@ -32,6 +32,8 @@ To build:
 ---
 You must have any flavor of MSBuild (MonoDevelop, Visual Studio, or simply a .Net version including it, which are most of them) installed to build the project.
 
+`NuGet.exe` must be available in your `PATH` variable.
+
 If you use the FSharp solution, you will also need the F# 3.1 compiler tools, linked [from fsharp.org](http://fsharp.org/use/windows/).
 
 A [PSake](https://github.com/psake/psake) build script is provided. You can run build.bat to build the project and run the unit tests. 
