@@ -2,12 +2,13 @@ Properties {
 	$apikey = $null # call nuget.bat with your Nuget API key as parameter
 	$BIN_PATH = ".\build"
 	$NUGET_OUTPUT = (Join-Path $BIN_PATH "nuget")
+	$XUNIT_RUNNER = ".\packages\xunit.runners.1.9.1\tools\xunit.console.clr4.exe"
 }
 
 Framework "4.0x86"
 FormatTaskName "-------- {0} --------"
 
-task default -depends Cleanup-Binaries, Restore-Packages, Build-Solution
+task default -depends Cleanup-Binaries, Restore-Packages, Build-Solution, Run-Tests
 
 # cleans up the binaries output folder
 task Cleanup-Binaries {
@@ -29,6 +30,12 @@ task Build-Solution -depends Cleanup-Binaries, Restore-Packages {
 	Exec {
 		msbuild "CommandLine.sln" /t:Build /p:Configuration=Release /p:Platform="Any CPU" /p:Warnings=true /v:Normal /nologo /clp:WarningsOnly`;ErrorsOnly`;Summary`;PerformanceSummary
 	}
+}
+
+# runs the unit tests
+task Run-Tests -depends Build-Solution {
+	Write-Host "Running the unit tests"
+	& $XUNIT_RUNNER (Join-Path $BIN_PATH "Tests\Release\CommandLine.Tests.dll")
 }
 
 # generates a Nuget package
