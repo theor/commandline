@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/45x7s2101mpfjmhp/branch/stable-1.9)](https://ci.appveyor.com/project/cosmo0/commandline/branch/stable-1.9)
 
-Command Line Parser Library 1.9.71.2 stable for CLR.
+Command Line Parser Library 1.9 stable
 ===
 The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks defining switches, options and verb commands. It allows you to display an help screen with an high degree of customization and a simple way to report syntax errors to the end user. Everything that is boring and repetitive to be programmed stands up on library shoulders, letting developers concentrate on core logic.
 __This library provides _hassle free_ command line parsing with a constantly updated API since 2005.__
@@ -22,18 +22,20 @@ At glance:
 
 To install:
 ---
-  - NuGet way (latest stable): ``Install-Package CommandLineParser``
-  - NuGet way (latest version): ``Install-Package CommandLineParser -pre``
+  - NuGet way (latest stable): ``Install-Package CommandLineParser19``
+  - NuGet way (latest version): ``Install-Package CommandLineParser19 -pre``
   - XCOPY way: ``cp -r CommandLine/src/libcmdline To/Your/Project/Dir``
 
 To build:
 ---
-You can use still use MonoDevelop or Visual Studio, but the project can aslo be built using Ruby [Rake](http://rake.rubyforge.org/) with a script that depends on [Albacore](https://github.com/derickbailey/Albacore).
+You can use still use MonoDevelop or Visual Studio, but the project can aslo be built using [PSake](https://github.com/psake/psake/).
 ```
-$ gem install albacore
-$ git clone https://github.com/gsscoder/commandline.git CommandLine
-$ cd CommandLine
-$ rake
+$ build.bat
+```
+or
+```
+$ Import-Module psake.psm1
+$ Invoke-Psake .\build.ps1
 ```
 
 To start:
