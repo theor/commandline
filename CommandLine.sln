@@ -21,11 +21,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuGet", "NuGet", "{CC062800
 		nuget\readme.txt = nuget\readme.txt
 	EndProjectSection
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{18282A82-E36C-4938-8397-C0A1166983BA}"
-	ProjectSection(SolutionItems) = preProject
-		Rakefile.rb = Rakefile.rb
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{350E598F-50C7-45A2-83A6-346AF7D163F5}"
 	ProjectSection(SolutionItems) = preProject
 		.nuget\NuGet.Config = .nuget\NuGet.Config
@@ -70,7 +65,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{939BEBC0-CE70-4209-A991-0DA4E8F3B9AE} = {4F498B61-A7BC-4B32-9ACB-901D4F50659B}
-		{18282A82-E36C-4938-8397-C0A1166983BA} = {4F498B61-A7BC-4B32-9ACB-901D4F50659B}
 		{CC062800-4709-4A04-8A0D-DD972C1BFFC5} = {939BEBC0-CE70-4209-A991-0DA4E8F3B9AE}
 	EndGlobalSection
 	GlobalSection(MonoDevelopProperties) = preSolution
