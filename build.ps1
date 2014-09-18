@@ -10,6 +10,8 @@ FormatTaskName "-------- {0} --------"
 
 task default -depends Cleanup-Binaries, Restore-Packages, Build-Solution, Run-Tests
 
+# TODO: update assembly infos: see https://gist.github.com/toddb/1133511
+
 # cleans up the binaries output folder
 task Cleanup-Binaries {
 	Write-Host "Removing $BIN_PATH"
