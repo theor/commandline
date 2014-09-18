@@ -49,49 +49,33 @@ namespace CommandLine.Parsing
 
                 ArgumentParser.EnsureOptionArrayAttributeIsNotBoundToScalar(option);
 
-                if (argumentEnumerator.IsLast && optionGroup.IsLast)
+                if (!option.IsBoolean)
                 {
-                    return PresentParserState.Failure;
-                }
-
-                bool valueSetting;
-                if (!optionGroup.IsLast)
-                {
-                    if (!option.IsArray)
+                    if (argumentEnumerator.IsLast && optionGroup.IsLast)
                     {
-                        valueSetting = option.SetValue(optionGroup.GetRemainingFromNext(), options);
-                        if (!valueSetting)
+                        return PresentParserState.Failure;
+                    }
+
+                    bool valueSetting;
+                    if (!optionGroup.IsLast)
+                    {
+                        if (!option.IsArray)
                         {
-                            DefineOptionThatViolatesFormat(option);
+                            valueSetting = option.SetValue(optionGroup.GetRemainingFromNext(), options);
+                            if (!valueSetting)
+                            {
+                                DefineOptionThatViolatesFormat(option);
+                            }
+
+                            return ArgumentParser.BooleanToParserState(valueSetting);
                         }
 
-                        return ArgumentParser.BooleanToParserState(valueSetting);
-                    }
+                        ArgumentParser.EnsureOptionAttributeIsArrayCompatible(option);
 
-                    ArgumentParser.EnsureOptionAttributeIsArrayCompatible(option);
+                        var items = ArgumentParser.GetNextInputValues(argumentEnumerator);
+                        items.Insert(0, optionGroup.GetRemainingFromNext());
 
-                    var items = ArgumentParser.GetNextInputValues(argumentEnumerator);
-                    items.Insert(0, optionGroup.GetRemainingFromNext());
-
-                    valueSetting = option.SetValue(items, options);
-                    if (!valueSetting)
-                    {
-                        DefineOptionThatViolatesFormat(option);
-                    }
-
-                    return ArgumentParser.BooleanToParserState(valueSetting, true);
-                }
-
-                if (!option.IsBoolean && !argumentEnumerator.IsLast && !ArgumentParser.IsInputValue(argumentEnumerator.Next))
-                {
-                    return PresentParserState.Failure;
-                }
-
-                if (!option.IsArray)
-                {
-                    valueSetting = option.SetValue(argumentEnumerator.Next, options);
-                    if (!option.IsBoolean || valueSetting)
-                    {
+                        valueSetting = option.SetValue(items, options);
                         if (!valueSetting)
                         {
                             DefineOptionThatViolatesFormat(option);
@@ -99,10 +83,23 @@ namespace CommandLine.Parsing
 
                         return ArgumentParser.BooleanToParserState(valueSetting, true);
                     }
-                }
 
-                if (!option.IsBoolean)
-                {
+                    if (!argumentEnumerator.IsLast && !ArgumentParser.IsInputValue(argumentEnumerator.Next))
+                    {
+                        return PresentParserState.Failure;
+                    }
+
+                    if (!option.IsArray)
+                    {
+                        valueSetting = option.SetValue(argumentEnumerator.Next, options);
+                        if (!valueSetting)
+                        {
+                            DefineOptionThatViolatesFormat(option);
+                        }
+
+                        return ArgumentParser.BooleanToParserState(valueSetting, true);
+                    }
+
                     ArgumentParser.EnsureOptionAttributeIsArrayCompatible(option);
 
                     var moreItems = ArgumentParser.GetNextInputValues(argumentEnumerator);
