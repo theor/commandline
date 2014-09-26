@@ -48,34 +48,6 @@ namespace CommandLine.Tests.Unit.Attributes
             }
         }
 
-        #region #DGN0002
-        // Impossible now! (see API change 00)
-        //[Fact]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void OptionShortNameCanNotExceedOneCharacter()
-        //{
-        //    new OptionAttribute("more-than-one-character", null);
-        //}
-        //[Fact]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void OptionListShortNameCanNotExceedOneCharacter()
-        //{
-        //    new OptionListAttribute("same-as-above", null);
-        //}
-        //[Fact]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void HelpOptionShortNameCanNotExceedOneCharacter()
-        //{
-        //    new HelpOptionAttribute("same-as-above-again", null);
-        //}
-        //[Fact]
-        //[ExpectedException(typeof(ArgumentException))]
-        //public void ShortNameOfBaseOptionDerivedTypeCanNotExceedOneCharacter()
-        //{
-        //    new CustomOptionAttribute("not-allowed", null);
-        //}
-        #endregion
-
         #region API change 01
         [Fact]
         public void Short_name_with_line_terminator_throws_exception()

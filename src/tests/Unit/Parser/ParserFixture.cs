@@ -199,6 +199,19 @@ namespace CommandLine.Tests.Unit.Parser
         }
 
         [Fact]
+        public void Parse_options_with_defaults_replaced()
+        {
+            var options = new SimpleOptionsWithDefaults();
+            var parser = new CommandLine.Parser();
+            var result = parser.ParseArguments(new string[] { "-s", "notstr", "-i", "10" }, options);
+
+            result.Should().BeTrue();
+            options.StringValue.Should().Be("notstr");
+            options.IntegerValue.Should().Be(10);
+            options.BooleanValue.Should().BeTrue();
+        }
+
+        [Fact]
         public void Parse_options_with_default_array()
         {
             var options = new SimpleOptionsWithDefaultArray();
