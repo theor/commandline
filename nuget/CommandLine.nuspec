@@ -2,11 +2,11 @@
 <package xmlns='http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd'>
     <metadata>
         <id>CommandLineParser19</id>
-        <version>1.9.73</version>
+        <version>1.9.74</version>
         <title>Command Line Parser Library 1.9</title>
         <authors>Giacomo Stelluti Scala, Thomas Broust</authors>
         <description>The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks. This is a fork of the original project, including most pull requests.</description>
-        <releaseNotes>Undoes a change (nullable boolean parameters).</releaseNotes>
+        <releaseNotes>This version allows falsible booleans</releaseNotes>
         <copyright>Copyright (c) 2005 - 2013 Giacomo Stelluti Scala</copyright>
         <licenseUrl>https://raw.github.com/cosmo0/commandline/stable-1.9/doc/LICENSE</licenseUrl>
         <projectUrl>https://github.com/cosmo0/commandline</projectUrl>
