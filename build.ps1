@@ -1,6 +1,8 @@
 Properties {
 	$apikey = $null # call nuget.bat with your Nuget API key as parameter
 	$BIN_PATH = ".\build"
+  $API_BIN_PATH = Join-Path $BIN_PATH "CommandLine\Release\CommandLine.dll"
+  $API_DOC_PATH = Join-Path $BIN_PATH "Help\docu"
   $NUGET_EXE = ".\.nuget\nuget.exe"
 	$NUGET_OUTPUT = (Join-Path $BIN_PATH "nuget")
 }
@@ -8,7 +10,7 @@ Properties {
 Framework "4.0x86"
 FormatTaskName "-------- {0} --------"
 
-task default -depends Cleanup-Binaries, Restore-Packages, Build-Solution
+task default -depends Cleanup-Binaries, Restore-Packages, Build-Solution, Generate-APIDoc
 
 # TODO: update assembly infos from build server ; see https://gist.github.com/toddb/1133511
 
@@ -32,6 +34,15 @@ task Build-Solution -depends Cleanup-Binaries, Restore-Packages {
 	Exec {
 		msbuild "CommandLine.sln" /t:Build /p:Configuration=Release /p:Platform="Any CPU" /p:Warnings=true /v:Normal /nologo /clp:WarningsOnly`;ErrorsOnly`;Summary`;PerformanceSummary
 	}
+}
+
+# generates the API documentation
+task Generate-APIDoc -depends Build-Solution {
+  Write-Host "Generating API docs"
+
+  & ".\tools\docu\docu.exe" $API_BIN_PATH --output=$API_DOC_PATH
+
+  & ".\tools\doxygen\doxygen.exe" .\Doxyfile
 }
 
 # generates a Nuget package
