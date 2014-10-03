@@ -1,6 +1,6 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/45x7s2101mpfjmhp/branch/master)](https://ci.appveyor.com/project/cosmo0/commandline/branch/master)
 
-Command Line Parser Library 2.0.0.0 pre-release for CLR.
+Command Line Parser Library 2.0 pre-release
 ===
 
 The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks defining switches, options and verb commands.  
@@ -35,8 +35,6 @@ To install:
 To build:
 ---
 You must have any flavor of MSBuild (Xamarin, Visual Studio, or simply a .Net version including it, which are most of them) installed to build the project, but Visual Studio 2010+ or Xamarin is required to modify the project.
-
-`NuGet.exe` must be available in your `PATH` variable.
 
 If you use the FSharp solution, you will also need the F# 3.1 compiler tools, linked [from fsharp.org](http://fsharp.org/use/windows/).
 

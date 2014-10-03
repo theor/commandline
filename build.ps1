@@ -1,6 +1,7 @@
 Properties {
 	$apikey = $null # call nuget.bat with your Nuget API key as parameter
 	$BIN_PATH = ".\build"
+  $NUGET_EXE = ".\.nuget\nuget.exe"
 	$NUGET_OUTPUT = (Join-Path $BIN_PATH "nuget")
 }
 
@@ -22,7 +23,7 @@ task Cleanup-Binaries {
 # restores nuget packages
 task Restore-Packages {
 	Write-Host "Restoring NuGet packages"
-	& nuget restore CommandLine.sln
+	& $NUGET_EXE restore CommandLine.sln
 }
 
 # builds the solution
@@ -39,7 +40,7 @@ task Generate-Package -depends Build-Solution {
 		throw New-Object [System.ArgumentException] "If you want to build a Nuget package, please provide your API key as the batch parameter"
 	} else {
 		Write-Host "Generating a Nuget package"
-		& nuget setApiKey $apikey
+		& $NUGET_EXE setApiKey $apikey
 		
 		# Nuget doesn't create the output dir automatically...
 		if (-not (Test-Path $NUGET_OUTPUT)) {
@@ -47,11 +48,11 @@ task Generate-Package -depends Build-Solution {
 		}
 		
 		# Package the nuget
-		& nuget Pack ".\nuget\CommandLine.nuspec" -OutputDirectory $NUGET_OUTPUT
+		& $NUGET_EXE Pack ".\nuget\CommandLine.nuspec" -OutputDirectory $NUGET_OUTPUT
 		
 		# Send the nuget
 		Get-ChildItem "$NUGET_OUTPUT\*.nupkg" | % {
-			& nuget Push $_
+			& $NUGET_EXE Push $_
 		}
 	}
 }
