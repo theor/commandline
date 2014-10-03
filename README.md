@@ -14,15 +14,15 @@ Compatibility:
 
 Current Release:
 ---
-  - This is a __pre-release__, for documentation please read the appropriate [wiki section](https://github.com/gsscoder/commandline/wiki/Latest-Beta).
+  - This is a __pre-release__, for documentation please read the appropriate [wiki section](https://github.com/cosmo0/commandline/wiki/Latest-Beta).
 
 At a glance:
 ---
   - One line parsing using default singleton: ``CommandLine.Parser.Default.ParseArguments(...)``.
   - One line help screen generator: ``HelpText.AutoBuild(...)``.
   - Map command line arguments to sequences (``IEnumerable<T>``), enum or standard scalar types.
-  - __Plug-In friendly__ architecture as explained [here](https://github.com/gsscoder/commandline/wiki/Plug-in-Friendly-Architecture).
-  - Define [verb commands](https://github.com/gsscoder/commandline/wiki/Verb-Commands) as ``git commit -a``.
+  - __Plug-In friendly__ architecture as explained [here](https://github.com/cosmo0/commandline/wiki/Plug-in-Friendly-Architecture).
+  - Define [verb commands](https://github.com/cosmo0/commandline/wiki/Verb-Commands) as ``git commit -a``.
   - Most of features applies with a [Convention over Configuration (CoC)](http://en.wikipedia.org/wiki/Convention_over_configuration) philosophy.
   - F# specific API (work in progress).
 
@@ -42,7 +42,7 @@ A [PSake](https://github.com/psake/psake) build script is provided. You can run 
 
 Public API:
 ---
-Latest changes are recorded from Version 1.9.4.91, please refer to [this document](https://github.com/gsscoder/commandline/blob/master/doc/PublicAPI.md).
+Public API documentation available at http://cosmo0.github.io/commandline
 
 Notes:
 ---
