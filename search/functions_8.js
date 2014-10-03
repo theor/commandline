@@ -1,0 +1,5 @@
+var searchData=
+[
+  ['operator_20string',['operator string',['../class_command_line_1_1_text_1_1_copyright_info.html#a78a761a4d92d535f61e48448e500f4a0',1,'CommandLine.Text.CopyrightInfo.operator string()'],['../class_command_line_1_1_text_1_1_heading_info.html#a1a04ca6f307ebf9a0357e3e0357a308b',1,'CommandLine.Text.HeadingInfo.operator string()'],['../class_command_line_1_1_text_1_1_help_text.html#aa34b9e2c5fc3e010ef586fd006009d56',1,'CommandLine.Text.HelpText.operator string()']]],
+  ['optionattribute',['OptionAttribute',['../class_command_line_1_1_option_attribute.html#a505619bb9cd7a7b9fb6cc79df048fbe3',1,'CommandLine.OptionAttribute.OptionAttribute()'],['../class_command_line_1_1_option_attribute.html#a22a7ee0b96ce0c2cb547700d539de18a',1,'CommandLine.OptionAttribute.OptionAttribute(string longName)'],['../class_command_line_1_1_option_attribute.html#a27b9eecedf065601486d613b69a9eeab',1,'CommandLine.OptionAttribute.OptionAttribute(char shortName, string longName)'],['../class_command_line_1_1_option_attribute.html#a5bbec09267b5a6825b4cf0f2057c938f',1,'CommandLine.OptionAttribute.OptionAttribute(char shortName)']]]
+];

@@ -1,0 +1,14 @@
+var searchData=
+[
+  ['heading',['Heading',['../class_command_line_1_1_text_1_1_help_text.html#ab1640226ca276c9e89753894a68cbfbb',1,'CommandLine::Text::HelpText']]],
+  ['headinginfo',['HeadingInfo',['../class_command_line_1_1_text_1_1_heading_info.html',1,'CommandLine::Text']]],
+  ['headinginfo',['HeadingInfo',['../class_command_line_1_1_text_1_1_heading_info.html#a002cb7929dd9494525a42121737a872c',1,'CommandLine.Text.HeadingInfo.HeadingInfo(string programName)'],['../class_command_line_1_1_text_1_1_heading_info.html#a57822401776a4b4427bd77807025f986',1,'CommandLine.Text.HeadingInfo.HeadingInfo(string programName, string version)']]],
+  ['helpcommandtext',['HelpCommandText',['../class_command_line_1_1_text_1_1_sentence_builder.html#a0f4f5a6e02819c89607fb7b510fcb84f',1,'CommandLine::Text::SentenceBuilder']]],
+  ['helprequestederror',['HelpRequestedError',['../class_command_line_1_1_help_requested_error.html',1,'CommandLine']]],
+  ['helprequestederror',['HelpRequestedError',['../namespace_command_line.html#ae1ad166016a414355a47ea0d1bec14efab6b96419529e634030337ecd6d365a7e',1,'CommandLine']]],
+  ['helptext',['HelpText',['../class_command_line_1_1_option_attribute.html#a69ea3453e7529cc07b0d8bda8616c91c',1,'CommandLine.OptionAttribute.HelpText()'],['../class_command_line_1_1_verb_attribute.html#a4fddcea022f60feb491b95378df30e49',1,'CommandLine.VerbAttribute.HelpText()'],['../class_command_line_1_1_text_1_1_help_text.html#af12d5369d2fc9eeb2b33f27fe74c17fa',1,'CommandLine.Text.HelpText.HelpText()'],['../class_command_line_1_1_text_1_1_help_text.html#ad5848e80155e4a67f2e137fd888a4a4f',1,'CommandLine.Text.HelpText.HelpText(SentenceBuilder sentenceBuilder)'],['../class_command_line_1_1_text_1_1_help_text.html#a6b0de22f8d8e15c1a8419ed85c35c747',1,'CommandLine.Text.HelpText.HelpText(string heading)'],['../class_command_line_1_1_text_1_1_help_text.html#a4e64aca27463e7248c4fd079113c97e0',1,'CommandLine.Text.HelpText.HelpText(SentenceBuilder sentenceBuilder, string heading)'],['../class_command_line_1_1_text_1_1_help_text.html#afe527035ba0c1aef1bca1e4f61934847',1,'CommandLine.Text.HelpText.HelpText(string heading, string copyright)'],['../class_command_line_1_1_text_1_1_help_text.html#a0d8d2f0390f994b64c07763970e124b9',1,'CommandLine.Text.HelpText.HelpText(SentenceBuilder sentenceBuilder, string heading, string copyright)']]],
+  ['helptext',['HelpText',['../class_command_line_1_1_text_1_1_help_text.html',1,'CommandLine::Text']]],
+  ['helpverbrequestederror',['HelpVerbRequestedError',['../namespace_command_line.html#ae1ad166016a414355a47ea0d1bec14efa16b4d7e5d281b0e16db681d8c2d2e449',1,'CommandLine']]],
+  ['helpverbrequestederror',['HelpVerbRequestedError',['../class_command_line_1_1_help_verb_requested_error.html',1,'CommandLine']]],
+  ['helpwriter',['HelpWriter',['../class_command_line_1_1_parser_settings.html#adef71cb6bb9c41050478712802c0dd83',1,'CommandLine::ParserSettings']]]
+];
