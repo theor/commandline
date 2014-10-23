@@ -7,6 +7,13 @@ The Command Line Parser Library offers to CLR applications a clean and concise A
 It allows you to display an help screen with an high degree of customization and a simple way to report syntax errors to the end user. Everything that is boring and repetitive to be programmed stands up on library shoulders, letting developers concentrate on core logic.  
 __This library provides _hassle free_ command line parsing with a constantly updated API since 2005.__
 
+Project status and future
+---
+This fork contains the latest pull requests from the original project (since the original developer seems to have vanished).  
+I will not, however, actively develop it. You can make pull requests, I will merge pull requests to the original project, and I will fix bugs as I come across them, but I will not add new features.
+
+You can take a look at alternative libraries like [ManyConsoles](https://github.com/fschwiet/ManyConsole) (c++ style) and [clipr](https://github.com/nemec/clipr) (python style).
+
 Compatibility:
 ---
   - .NET Framework 4.0+ Client Profile
@@ -38,7 +45,7 @@ You must have any flavor of MSBuild (Xamarin, Visual Studio, or simply a .Net ve
 
 If you use the FSharp solution, you will also need the F# 3.1 compiler tools, linked [from fsharp.org](http://fsharp.org/use/windows/).
 
-A [PSake](https://github.com/psake/psake) build script is provided. You can run `build.bat` to build the project and run the unit tests. 
+A [PSake](https://github.com/psake/psake) build script is provided. You can run `build.bat` to build the project and run the unit tests.
 
 Public API:
 ---
@@ -57,7 +64,7 @@ class Options {
   [Option('r', "read", Required = true,
     HelpText = "Input files to be processed.")]
   public IEnumerable<string> InputFiles { get; set; }
-    
+
   // omitting long name, default --verbose
   [Option(DefaultValue = true,
     HelpText = "Prints all messages to standard output.")]
@@ -97,10 +104,6 @@ Resources for newcomers:
   - [Quickstart](https://github.com/gsscoder/commandline/wiki/Quickstart)
   - [Wiki](https://github.com/gsscoder/commandline/wiki)
   - [GNU getopt](http://www.gnu.org/software/libc/manual/html_node/Getopt.html)
-
-Latest Changes:
----
-  - Implemented issue #31 (double dash), thanks also to PR #77 by Tom Glastonbury (@tg73).
 
 Contacts:
 ---
