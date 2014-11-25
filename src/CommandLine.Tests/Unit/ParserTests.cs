@@ -98,6 +98,26 @@ namespace CommandLine.Tests.Unit
         }
 
         [Fact]
+        public void Same_value_in_two_parameters_are_parsed()
+        {
+            // Fixture setup
+            var expectedOptions = new FakeOptionsWithTwoIntegers
+            {
+                A = 2,
+                B = 2
+            };
+            var sut = new Parser();
+
+            // Exercize system
+            var result = sut.ParseArguments<FakeOptionsWithTwoIntegers>(new[] { "-a", "2", "-b", "2" });
+
+            // Verify outcome
+            result.Value.ShouldHave().AllProperties().EqualTo(expectedOptions);
+            Assert.False(result.Errors.Any());
+            // Teardown
+        }
+
+        [Fact]
         public void Short_Parameters_names_are_used()
         {
             // Fixture setup
