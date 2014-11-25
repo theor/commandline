@@ -78,6 +78,46 @@ namespace CommandLine.Tests.Unit
         }
 
         [Fact]
+        public void Parameters_names_are_inferred()
+        {
+            // Fixture setup
+            var expectedOptions = new FakeOptions
+            {
+                StringValue = "strvalue",
+                IntSequence = new [] { 1, 2, 3 }
+            };
+            var sut = new Parser();
+
+            // Exercize system
+            var result = sut.ParseArguments<FakeOptions>(new[] { "--stringvalue", "strvalue", "--intsequence", "1", "2", "3" });
+
+            // Verify outcome
+            result.Value.ShouldHave().AllProperties().EqualTo(expectedOptions);
+            Assert.False(result.Errors.Any());
+            // Teardown
+        }
+
+        [Fact]
+        public void Short_Parameters_names_are_used()
+        {
+            // Fixture setup
+            var expectedOptions = new FakeOptions
+            {
+                IntSequence = new[] { 1, 2, 3 },
+                BoolValue = true
+            };
+            var sut = new Parser();
+
+            // Exercize system
+            var result = sut.ParseArguments<FakeOptions>(new[] { "-x", "true", "-i1", "2", "3" });
+
+            // Verify outcome
+            result.Value.ShouldHave().AllProperties().EqualTo(expectedOptions);
+            Assert.False(result.Errors.Any());
+            // Teardown
+        }
+
+        [Fact]
         public void Parse_options_with_double_dash()
         {
             // Fixture setup
