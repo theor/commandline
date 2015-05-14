@@ -25,7 +25,7 @@ Current Release:
 
 At a glance:
 ---
-  - One line parsing using default singleton: ``CommandLine.Parser.Default.ParseArguments(...)``.
+  - One line parsing using default singleton: ``CommandLine.Parser.Default.ParseArguments<Options>(args)``.
   - One line help screen generator: ``HelpText.AutoBuild(...)``.
   - Map command line arguments to sequences (``IEnumerable<T>``), enum or standard scalar types.
   - __Plug-In friendly__ architecture as explained [here](https://github.com/cosmo0/commandline/wiki/Plug-in-Friendly-Architecture).
