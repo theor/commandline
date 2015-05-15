@@ -129,7 +129,7 @@ namespace CommandLine.Tests.Unit
             var sut = new Parser();
 
             // Exercize system
-            var result = sut.ParseArguments<FakeOptions>(new[] { "-x", "true", "-i1", "2", "3" });
+            var result = sut.ParseArguments<FakeOptions>(new[] { "-x", "-i1", "2", "3" });
 
             // Verify outcome
             result.Value.ShouldHave().AllProperties().EqualTo(expectedOptions);
