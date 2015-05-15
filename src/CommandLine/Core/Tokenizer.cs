@@ -18,8 +18,12 @@ namespace CommandLine.Core
             var errors = new List<Error>();
             Action<Error> onError = e => errors.Add(e);
 
+            var isUnix = Environment.OSVersion.Platform == PlatformID.Unix
+                || Environment.OSVersion.Platform == PlatformID.MacOSX;
+
             var tokens = (from arg in arguments
-                         from token in !arg.StartsWith("-", StringComparison.Ordinal) && !arg.StartsWith("/", StringComparison.Ordinal)
+                         from token in !arg.StartsWith("-", StringComparison.Ordinal) 
+                         && (isUnix ? true : !arg.StartsWith("/", StringComparison.Ordinal))
                                ? new Token[] { Token.Value(arg) }
                                : arg.StartsWith("--", StringComparison.Ordinal)
                                      ? TokenizeLongName(arg, onError)
