@@ -1,11 +1,20 @@
 [![Build status](https://ci.appveyor.com/api/projects/status/45x7s2101mpfjmhp/branch/master)](https://ci.appveyor.com/project/cosmo0/commandline/branch/master)
 
-Command Line Parser Library 2.0 pre-release
+Command Line Parser Library
 ===
 
 The Command Line Parser Library offers to CLR applications a clean and concise API for manipulating command line arguments and related tasks defining switches, options and verb commands.  
 It allows you to display an help screen with an high degree of customization and a simple way to report syntax errors to the end user. Everything that is boring and repetitive to be programmed stands up on library shoulders, letting developers concentrate on core logic.  
 __This library provides _hassle free_ command line parsing with a constantly updated API since 2005.__
+
+There are two versions available via nuget, the current 2.0 branch that tracks master, and a maintenance branch of 1.9 to provide bugfixes for anyone using the older api.
+
+  - 2.0
+    - nuget package: https://www.nuget.org/packages/CommandLineParser20
+    - branch: master
+  - 1.9
+    - nuget package: https://www.nuget.org/packages/CommandLineParser19
+    - branch: stable-1.9
 
 Project status and future
 ---
@@ -21,11 +30,11 @@ Compatibility:
 
 Current Release:
 ---
-  - This is a __pre-release__, for documentation please read the appropriate [wiki section](https://github.com/cosmo0/commandline/wiki/Latest-Beta).
+  - For documentation please read the appropriate [wiki section](https://github.com/cosmo0/commandline/wiki/Latest-Beta).
 
 At a glance:
 ---
-  - One line parsing using default singleton: ``CommandLine.Parser.Default.ParseArguments(...)``.
+  - One line parsing using default singleton: ``CommandLine.Parser.Default.ParseArguments<Options>(args)``.
   - One line help screen generator: ``HelpText.AutoBuild(...)``.
   - Map command line arguments to sequences (``IEnumerable<T>``), enum or standard scalar types.
   - __Plug-In friendly__ architecture as explained [here](https://github.com/cosmo0/commandline/wiki/Plug-in-Friendly-Architecture).
