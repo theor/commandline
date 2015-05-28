@@ -52,10 +52,11 @@ namespace CommandLine.Core
             IEnumerable<string> arguments,
             StringComparer nameComparer,
             CultureInfo parsingCulture)
-        {     
-            return verbs.Any(a => nameComparer.Equals(a.Item1.Name, arguments.First()))
+        {
+            Func<Tuple<Verb, Type>, bool> predicate = v => nameComparer.Equals(v.Item1.Name, arguments.First()) || nameComparer.Equals(v.Item1.Alias, arguments.First());
+            return verbs.Any(predicate)
                 ? InstanceBuilder.Build(
-                    () => Activator.CreateInstance(verbs.Single(v => nameComparer.Equals(v.Item1.Name, arguments.First())).Item2),
+                    () => Activator.CreateInstance(verbs.Single(predicate).Item2),
                     tokenizer,
                     arguments.Skip(1),
                     nameComparer,
@@ -67,7 +68,7 @@ namespace CommandLine.Core
                     Maybe.Just(verbs.Select(v => v.Item2)));
         }
 
-       private static HelpVerbRequestedError CreateHelpVerbRequestedError(
+        private static HelpVerbRequestedError CreateHelpVerbRequestedError(
            IEnumerable<Tuple<Verb, Type>> verbs,
            string verb,
            StringComparer nameComparer)

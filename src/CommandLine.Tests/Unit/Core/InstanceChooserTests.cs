@@ -105,6 +105,24 @@ namespace CommandLine.Tests.Unit.Core
             Assert.IsType<AddOptions>(result.Value);
             expected.ShouldHave().AllRuntimeProperties().EqualTo(result.Value);
             // Teardown
+        }
+        [Fact]
+        public void Parse_existing_verb_alias_returns_verb_instance()
+        {
+            // Fixture setup
+            var expected = new AddOptions { Patch = true, FileName = "dummy.bin" };
+
+            // Exercize system 
+            var result = InstanceChooser.Choose(
+                new[] { typeof(AddOptions), typeof(CommitOptions), typeof(CloneOptions) },
+                new[] { "a", "--patch", "dummy.bin" },
+                StringComparer.Ordinal,
+                CultureInfo.InvariantCulture);
+
+            // Verify outcome
+            Assert.IsType<AddOptions>(result.Value);
+            expected.ShouldHave().AllRuntimeProperties().EqualTo(result.Value);
+            // Teardown
         }    
     }
 }

@@ -9,20 +9,27 @@ namespace CommandLine.Core
     internal sealed class Verb
     {
         private readonly string name;
+        private readonly string alias;
         private readonly string helpText;
 
-        public Verb(string name, string helpText)
+        public Verb(string name, string alias, string helpText)
         {
             if (name == null) throw new ArgumentNullException("name");
             if (helpText == null) throw new ArgumentNullException("helpText");
 
             this.name = name;
+            this.alias = alias;
             this.helpText = helpText;
         }
 
         public string Name
         {
             get { return this.name; }
+        }
+
+        public string Alias
+        {
+            get { return this.alias; }
         }
 
         public string HelpText
@@ -34,6 +41,7 @@ namespace CommandLine.Core
         {
             return new Verb(
                 attribute.Name,
+                attribute.Alias,
                 attribute.HelpText
                 );
         }

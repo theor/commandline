@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace CommandLine.Tests.Fakes
 {
-    [Verb("add", HelpText = "Add file contents to the index.")]
+    [Verb("add", Alias="a", HelpText = "Add file contents to the index.")]
     class AddOptions
     {
         [Option('p', "patch", SetName = "mode",

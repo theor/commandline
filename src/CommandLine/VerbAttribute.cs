@@ -12,6 +12,7 @@ namespace CommandLine
     {
         private readonly string name;
         private string helpText;
+        private string _alias;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CommandLine.VerbAttribute"/> class.
@@ -47,6 +48,23 @@ namespace CommandLine
                 }
 
                 this.helpText = value;
+            }
+        }
+
+        /// <summary>
+        /// Get or sets an alias for the verb
+        /// </summary>
+        /// <exception cref="ArgumentNullException"></exception>
+        public string Alias
+        {
+            get { return _alias; }
+            set
+            {
+                if (value == null)
+                {
+                    throw new ArgumentNullException("value");
+                }
+                _alias = value;
             }
         }
     }
